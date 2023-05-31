@@ -1,6 +1,7 @@
 ﻿
 namespace LeetcodeExercises.Easy
 {
+    //Given a binary array nums, return the maximum number of consecutive 1's in the array.
     public static class MaxConsecutiveOnes
     {
         public static int FindMaxConsecutiveOnes(int[] nums)

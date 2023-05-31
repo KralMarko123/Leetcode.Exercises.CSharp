@@ -1,6 +1,8 @@
 ﻿
 namespace LeetcodeExercises.Easy
 {
+    //Given two strings ransomNote and magazine, return true if ransomNote can be constructed by using the letters from magazine and false otherwise.
+    //Each letter in magazine can only be used once in ransomNote.
     public static class RansomNote
     {
         private static Dictionary<char, int> GenerateDictionaryForLetters(string word)

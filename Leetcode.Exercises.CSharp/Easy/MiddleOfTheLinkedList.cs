@@ -1,7 +1,9 @@
-﻿using LeetcodeExercises.Structures;
+﻿using Leetcode.Exercises.CSharp.Structures;
 
 namespace LeetcodeExercises.Easy
 {
+    //Given the head of a singly linked list, return the middle node of the linked list.
+    //If there are two middle nodes, return the second middle node.
     public static class MiddleOfTheLinkedList
     {
         public static ListNode MiddleNode(ListNode head)
