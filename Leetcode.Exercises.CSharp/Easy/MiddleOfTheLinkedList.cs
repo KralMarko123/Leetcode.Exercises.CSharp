@@ -29,7 +29,7 @@ namespace LeetcodeExercises.Easy
                 head = head.next;
             }
 
-            return head;
+            return head!;
         }
 
         public static ListNode MiddleNodeTwoPointer(ListNode head)
