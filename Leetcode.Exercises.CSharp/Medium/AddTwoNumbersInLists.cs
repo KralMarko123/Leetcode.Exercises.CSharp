@@ -1,7 +1,5 @@
 ﻿
 using Leetcode.Exercises.CSharp.Structures;
-using System.Text;
-using static Leetcode.Exercises.CSharp.Helpers.ListHelpers;
 namespace Leetcode.Exercises.CSharp.Medium
 {
     // You are given two non-empty linked lists representing two non-negative integers.
