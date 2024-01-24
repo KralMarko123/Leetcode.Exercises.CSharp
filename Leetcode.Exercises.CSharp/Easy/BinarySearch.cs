@@ -3,7 +3,8 @@ namespace Leetcode.Exercises.CSharp.Easy
 {
     public static class BinarySearch
     {
-        // Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums.If target exists, then return its index.Otherwise, return -1.
+        // Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums.
+        // If target exists, then return its index. Otherwise, return -1.
         // You must write an algorithm with O(log n) runtime complexity.
         public static int Search(int[] nums, int target)
         {
@@ -18,9 +19,12 @@ namespace Leetcode.Exercises.CSharp.Easy
 
             while (start <= end)
             {
-                if (nums[start + (end - start) / 2] == target) return start + (end - start) / 2;
-                if (nums[start + (end - start) / 2] > target) end = start + (end - start) / 2 - 1;
-                else start = start + (end - start) / 2 + 1;
+                var halfway = start + (end - start) / 2;
+                
+                if (nums[halfway] == target) return halfway;
+
+                if (nums[halfway] > target) end = halfway - 1;
+                else start = halfway + 1;
             }
 
             return -1;
