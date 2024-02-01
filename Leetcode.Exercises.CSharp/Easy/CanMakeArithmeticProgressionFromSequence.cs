@@ -19,11 +19,12 @@ namespace Leetcode.Exercises.CSharp.Easy
             if (difference == 0) return true;
 
             var set = new HashSet<int>();
+
             // Step 4: Check if each element is divisible by the difference and exists only once in the array
             foreach (var num in arr)
             {
-                if ((num - minElement) % difference != 0) return false;
-                if (set.Contains(num)) return false;
+                if ((num - minElement) % difference != 0 || set.Contains(num)) return false;
+
                 set.Add(num);
             }
 

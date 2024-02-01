@@ -9,14 +9,18 @@ namespace Leetcode.Exercises.CSharp.Easy
         public static int MaxProfit(int[] prices)
         {
             if (prices.Length == 1) return 0;
-            
+
             var maxProfit = 0;
             var cheapestStockDay = 0;
 
-            for (var dayOFStock = 1; dayOFStock < prices.Length; dayOFStock++)
+            for (var dayOfStock = 1; dayOfStock < prices.Length; dayOfStock++)
             {
-                if (prices[dayOFStock] - prices[cheapestStockDay] > maxProfit) maxProfit = prices[dayOFStock] - prices[cheapestStockDay];
-                if (prices[dayOFStock] < prices[cheapestStockDay]) cheapestStockDay = dayOFStock;
+                var profit = prices[dayOfStock] - prices[cheapestStockDay];
+
+                if (profit > maxProfit)
+                    maxProfit = profit;
+                if (prices[dayOfStock] < prices[cheapestStockDay])
+                    cheapestStockDay = dayOfStock;
             }
 
             return maxProfit;
