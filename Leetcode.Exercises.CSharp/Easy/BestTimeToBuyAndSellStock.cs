@@ -19,6 +19,7 @@ namespace Leetcode.Exercises.CSharp.Easy
 
                 if (profit > maxProfit)
                     maxProfit = profit;
+
                 if (prices[dayOfStock] < prices[cheapestStockDay])
                     cheapestStockDay = dayOfStock;
             }
