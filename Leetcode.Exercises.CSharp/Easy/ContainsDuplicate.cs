@@ -19,10 +19,7 @@ namespace LeetcodeExercises.Easy
 
         public static bool ContainsDuplicateWithHashSet(int[] nums)
         {
-            var set = new HashSet<int>(nums);
-
-            if (set.Count != nums.Length) return true;
-            else return false;
+            return new HashSet<int>(nums).Count != nums.Length;
         }
     }
 }
