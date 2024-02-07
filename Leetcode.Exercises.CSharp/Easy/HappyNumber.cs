@@ -11,28 +11,22 @@ namespace Leetcode.Exercises.CSharp.Easy
     {
         public static bool IsHappy(int n)
         {
-            var helper = n;
-            var set = new HashSet<int>();
-
             if (n == 1) return true;
+            
+            var set = new HashSet<int>();
 
             while (true)
             {
-                var sum = GetSumOfSquaredDigits(helper);
+                n = GetSumOfSquaredDigitsInNumber(n);
 
-                // If sum is 1 it's a happy number, if it's already been passed it means it's a cycle
-                if (sum == 1) return true;
-                else if (set.Contains(sum)) break;
+                if (n == 1) return true;
+                else if (set.Contains(n)) return false;
 
-                set.Add(sum);
-                helper = sum;
+                set.Add(n);
             }
-
-            return false;
         }
 
-        // Helper method
-        private static int GetSumOfSquaredDigits(int n)
+        private static int GetSumOfSquaredDigitsInNumber(int n)
         {
             var sum = 0;
 

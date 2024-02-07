@@ -29,30 +29,24 @@ namespace Leetcode.Exercises.CSharp.Medium
         public static int ReverseUsingQueue(int x)
         {
             if (x / 10 == 0) return x;
+
             while (x % 10 == 0) x /= 10;
 
             var queue = new Queue<int>();
-            var isNegative = x < 0;
-            var reversedInt = 0;
+            bool isNegative = x < 0;
+            int reversedInt = 0;
 
             while (x != 0)
             {
-                queue.Enqueue(x % 10 < 0 ? (x % 10) * -1 : x % 10);
+                queue.Enqueue(Math.Abs(x % 10));
                 x /= 10;
             }
 
             if (!int.TryParse(string.Join("", queue), out int value)) return 0;
 
-            while (queue.Count > 0)
-            {
-                if (reversedInt > int.MaxValue || reversedInt < int.MinValue) return 0;
-
-                reversedInt = reversedInt * 10 + queue.Dequeue();
-            }
+            while (queue.Count > 0) reversedInt = reversedInt * 10 + queue.Dequeue();
 
             return isNegative ? reversedInt * -1 : reversedInt;
         }
-
-
     }
 }

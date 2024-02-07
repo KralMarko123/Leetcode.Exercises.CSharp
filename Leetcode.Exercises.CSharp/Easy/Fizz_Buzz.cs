@@ -16,12 +16,7 @@ namespace LeetcodeExercises.Easy
             {
                 var text = "";
 
-                if (digit % 3 != 0 && digit % 5 != 0)
-                {
-                    text = digit.ToString();
-                    result.Add(text);
-                    continue;
-                }
+                if (digit % 3 != 0 && digit % 5 != 0) text += digit.ToString();
                 if (digit % 3 == 0) text += "Fizz";
                 if (digit % 5 == 0) text += "Buzz";
 
