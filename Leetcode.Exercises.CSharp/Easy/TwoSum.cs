@@ -6,24 +6,20 @@ namespace Leetcode.Exercises.CSharp.Easy
     //You can return the answer in any order.
     public static class TwoSum
     {
-        public static int[] TwoSumIndice(int[] nums, int target)
+        public static int[] FindTwoSum(int[] nums, int target)
         {
             var dictionary = new Dictionary<int, int>();
-            var targetIndices = new int[2];
 
             for (int i = 0; i < nums.Length; i++)
             {
                 if (dictionary.ContainsKey(target - nums[i]))
-                {
-                    targetIndices[0] = dictionary[target - nums[i]];
-                    targetIndices[1] = i;
-                    break;
-                }
+                    return new int[] { dictionary[target - nums[i]], i };
 
-                dictionary.TryAdd(nums[i], i);
+                if (!dictionary.ContainsKey(nums[i]))
+                    dictionary.Add(nums[i], i);
             }
 
-            return targetIndices;
+            return null;
         }
     }
 }
