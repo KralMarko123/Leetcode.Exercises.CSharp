@@ -57,22 +57,20 @@ namespace Leetcode.Exercises.CSharp.Helpers
             return head;
         }
 
-        public static string GetListAsString(ListNode head)
+        public static string GetListAsString(ListNode head, string separator = "")
         {
             var sb = new StringBuilder();
 
             while (head != null)
             {
                 sb.Append(head.val);
-                head = head.next;
+
+                if (head.next != null) sb.Append(separator);
+
+                head = head.next!;
             }
 
             return sb.ToString();
-        }
-
-        public static int GetListAsInteger(ListNode head)
-        {
-            return int.Parse(GetListAsString(head));
         }
 
         public static ListNode ReverseList(ListNode head)
