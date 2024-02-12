@@ -11,16 +11,18 @@ namespace Leetcode.Exercises.CSharp.Easy
 
         public static bool IsValid(string s)
         {
-            if (s.Length == 1) return false;
-
             var stack = new Stack<char>();
-
-            foreach (var character in s)
+            var dictionary = new Dictionary<char, char>()
             {
-                if (character == '(') { stack.Push(')'); continue; }
-                if (character == '{') { stack.Push('}'); continue; }
-                if (character == '[') { stack.Push(']'); continue; }
-                if (stack.Count == 0 || character != stack.Pop()) return false;
+                { '(', ')' },
+                { '[', ']' },
+                { '{', '}' }
+            };
+
+            foreach (char character in s)
+            {
+                if (dictionary.ContainsKey(character)) stack.Push(dictionary[character]);
+                else if (stack.Count == 0 || character != stack.Pop()) return false;
             }
 
             return stack.Count == 0;
